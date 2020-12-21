@@ -1,11 +1,7 @@
 input_path = joinpath(@__DIR__, "test.in")
 data = open(input_path) do file
-    readlines(file)
-end
-
-function solve1()
-    ans = 0
-    for line in data
+    data = []
+    for line in readlines(file)
         line = replace(line, 'B' => '1')
         line = replace(line, 'F' => '0')
         line = replace(line, 'R' => '1')
@@ -13,43 +9,32 @@ function solve1()
         str1 = line[1:7]
         str2 = line[8:end]
         row = parse(Int, str1, base=2)
-        col = parse(Int, str2, base=2) 
-        ans = max(row*8+col, ans)
+        col = parse(Int, str2, base=2)
+        push!(data, (row,col))
     end
-    return ans
+    (data)
 end
 
+function solve1()
+    return maximum([row*8+col for (row, col) in data])
+end
 
 function solve2()
-    ans = 0
-    d = Dict([])
+    d = Dict{Int,Bool}()
     for i = 1:126
         for j = 0:7
             d[i*8+j] = false 
         end
     end
-    for line in data
-        line = replace(line, 'B' => '1')
-        line = replace(line, 'F' => '0')
-        line = replace(line, 'R' => '1')
-        line = replace(line, 'L' => '0')
-        str1 = line[1:7]
-        str2 = line[8:end]
-        row = parse(Int, str1, base=2)
-        col = parse(Int, str2, base=2) 
-        id = row*8+col
-        d[id] = true
+    for (row, col) in data
+        d[row*8+col] = true
     end
     for (key,val) in d
-        if !val
-            if haskey(d, key-1) && haskey(d,key+1)
-                if d[key-1] && d[key+1]
-                    return key
-                end
-            end
+        if !val && get(d, key-1,false) && get(d,key+1,false)
+            return key
         end
     end
-    return -1
+    @assert false
 end
 
 

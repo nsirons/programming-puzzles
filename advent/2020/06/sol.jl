@@ -8,7 +8,7 @@ end
 push!(data, "")  # add empty line
 
 function solve1()
-    store = Set([])
+    store = Set{Char}([])
     ans = 0
     for line in data
         if length(line) == 0
@@ -24,7 +24,7 @@ function solve1()
 end
 
 function solve2()
-    store = DefaultDict(0)
+    store = DefaultDict{Char,Int}(0)
     ans = 0
     cnt = 0
     for line in data
@@ -35,7 +35,7 @@ function solve2()
                 end
             end
             cnt = 0
-            store = DefaultDict(0)
+            store = DefaultDict{Char,Int}(0)
         else
             for c in line
                 store[c] += 1

@@ -2,7 +2,7 @@ using DataStructures
 
 input_path = joinpath(@__DIR__, "test.in")
 data, word_counter,word_unknown_counter = open(input_path) do file
-    data = Dict([])
+    data = Dict{SubString{String}, Array{SubString{String}}}()
     word_counter = DefaultDict(0)
     word_unknown_counter = DefaultDict(0)
     for line in readlines(file)
@@ -25,7 +25,8 @@ data, word_counter,word_unknown_counter = open(input_path) do file
     end
     (data,word_counter,word_unknown_counter)
 end
-my_guess = Dict([])
+
+my_guess = Dict{SubString{String}, Array{SubString{String},1}}()
 
 
 function solve1()
@@ -46,7 +47,7 @@ end
 
 
 function solve2()
-    translate = Dict([])
+    translate = Dict{String, String}()
     while length(my_guess) > 0
         for key in [key for (key,_) in my_guess]
             if length(my_guess[key]) == 1

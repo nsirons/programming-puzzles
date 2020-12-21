@@ -29,7 +29,7 @@ end
 function solve1()
     ans = 0
     lst_nodes = ["shiny gold"]
-    visited_set = Set([])
+    visited_set = Set{String}([])
     push!(visited_set, "shiny gold")
     while (length(lst_nodes) >0)
         node = pop!(lst_nodes)
@@ -49,7 +49,7 @@ end
 function solve2()
     ans = 0
     lst_nodes = [["shiny gold",1]]
-    visited_set = Set([])
+    visited_set = Set{String}([])
     push!(visited_set, "shiny gold")
     while (length(lst_nodes) >0)
         node,cnt_node = pop!(lst_nodes)

@@ -4,7 +4,7 @@ data = open(input_path) do file
 end
 
 function solve1()
-    mem = Dict([])
+    mem = Dict{Int, Int}()
     mask = ""
     for line in data
         if line[1:4] == "mask"
@@ -18,12 +18,11 @@ function solve1()
         end
     end
     return sum((v for (_, v) in mem))
-    
 end
 
 
 function solve2()
-    mem = Dict([])
+    mem = Dict{Int, Int}()
     mask = ""
     for line in data
         if line[1:4] == "mask"
