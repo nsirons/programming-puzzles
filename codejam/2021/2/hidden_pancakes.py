@@ -9,11 +9,13 @@ input = lambda: sys.stdin.readline().rstrip('\r\n')
 raw_input = lambda: sys.stdin.readline().rstrip('\r\n')
 
 
-# Observations
+# Observations:
 # if 
 #   v[i+1] - v[i] > 1 -> impossible
 #   v[i+1] - v[i] == 1 -> p[i+1] is smaller than p[i]
-#   v[i+1] - v[i] <= 0 -> p[i+1] is bigger than  |v[i+1] - v[i]| + 1
+#   v[i+1] - v[i] <= 0 -> p[i+1] is bigger than  |v[i+1] - v[i]| + 1 previous pankakes
+# v[i] == 1 next biggest pankake
+# last v[i] == 1, at position i is the location of the biggest pankake
 
 m = 1000000007
 
