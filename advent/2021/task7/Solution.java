@@ -42,15 +42,9 @@ public class Solution {
         // Optimal height is mean of input
         int ans = 0;
         int mean = inp.stream().mapToInt(Integer::intValue).sum() / inp.size();
-        int maxHeight = inp.get(inp.size() - 1) + 1;
-        int s = 0;
-        int[] sumArr = new int[maxHeight];
-        for (int i=0; i<maxHeight; i++) {
-            sumArr[i] = s;
-            s += i+1;
-        }
         for (Integer val : inp) {
-            ans += Math.abs(sumArr[Math.abs(val - mean)]);
+            int n = Math.abs(val - mean);
+            ans += Math.abs(n * (n+1) / 2);
         }
         return ans;
     }
