@@ -42,7 +42,7 @@ public class Solution {
         }
         myReader.close();
 
-        long part2 = decode(dq);
+        long part2 = solve(dq);
         System.out.println(part1);
         System.out.println(part2);
     }
@@ -55,7 +55,7 @@ public class Solution {
         return str.toString();
     }
 
-    public static long decode(Deque<Character> packet) {
+    public static long solve(Deque<Character> packet) {
         String versionStr = get(packet, 3);
         String typeIdStr = get(packet, 3);
         int version = Integer.parseInt(versionStr, 2);
@@ -80,20 +80,20 @@ public class Solution {
             String I = get(packet, 1);
             if (I.charAt(0) == '0') {
                 String lengthStr = get(packet, 15);
-                Integer length = Integer.parseInt(lengthStr, 2);
+                int length = Integer.parseInt(lengthStr, 2);
                 Deque<Character> subPacket = new LinkedList<>();
                 for (int i=0; i<length; i++) {
                     subPacket.add(packet.poll());
                 }
                 while (!subPacket.isEmpty()) {
-                    stack.add(decode(subPacket));
+                    stack.add(solve(subPacket));
                 }
             }
             else {
                 String nStr = get(packet, 11);
-                Integer n = Integer.parseInt(nStr, 2);
+                int n = Integer.parseInt(nStr, 2);
                 for (int i=0; i<n; i++) {
-                    stack.add(decode(packet));
+                    stack.add(solve(packet));
                 }
             }
         }
@@ -102,7 +102,7 @@ public class Solution {
             return stack.stream().mapToLong(a->a).sum();
         }
         else if (typeId == 1) {
-            Long f = 1L;
+            long f = 1L;
             for (long val : stack) {
                 f *= val;
             }
@@ -118,10 +118,10 @@ public class Solution {
             return (stack.get(0) > stack.get(1)) ? 1L : 0L;
         }
         else if (typeId == 6){
-            return (stack.get(0) > stack.get(1)) ? 1L : 0L;
+            return (stack.get(0) < stack.get(1)) ? 1L : 0L;
         }
         else if (typeId == 7){
-            return (stack.get(0) > stack.get(1)) ? 1L : 0L;
+            return (stack.get(0).equals(stack.get(1))) ? 1L : 0L;
         }
         return 0L;
     }
