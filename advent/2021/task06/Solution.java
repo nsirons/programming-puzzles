@@ -1,10 +1,7 @@
-package task6;
+package task06;
 
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.stream.LongStream;
 
@@ -13,7 +10,7 @@ public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         long[] data = new long[9];
 
-        File myObj = new File("aoc2021/src/task6/test.in");
+        File myObj = new File("aoc2021/src/task06/test.in");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             for (String val : myReader.nextLine().split(",")) {

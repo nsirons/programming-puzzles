@@ -1,4 +1,4 @@
-package task9;
+package task09;
 
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -18,7 +18,7 @@ public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         data = new ArrayList<>();
 
-        File myObj = new File("aoc2021/src/task9/test.in");
+        File myObj = new File("aoc2021/src/task09/test.in");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             List<Integer> row = new ArrayList<>();
@@ -72,7 +72,6 @@ public class Solution {
     }
 
     public static int part2() {
-        // all basins are surrounded by 'walls' of 9 or edge
         visited = new boolean[H][W];
         // too lazy to change to maxHeap
         PriorityQueue<Integer> minHeap=new PriorityQueue<>();

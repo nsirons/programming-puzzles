@@ -1,4 +1,4 @@
-package task4;
+package task04;
 
 public class Board {
     public int size;
@@ -10,7 +10,7 @@ public class Board {
         this.board = new int[size][size];
         this.state = new boolean[size][size];
     }
-    
+
     boolean update(int i, int j) {
         state[i][j] = true;
         return check_row(i) || check_col(j);

@@ -1,4 +1,4 @@
-package task1;
+package task01;
 
 
 import java.io.File;  // Import the File class
@@ -12,7 +12,7 @@ public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         List<Integer> data = new ArrayList<>();
 
-        File myObj = new File("aoc2021/src/task1/1.in");
+        File myObj = new File("aoc2021/src/task01/test.in");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             data.add(Integer.valueOf(myReader.nextLine()));

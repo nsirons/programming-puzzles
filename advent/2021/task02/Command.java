@@ -1,4 +1,4 @@
-package task2;
+package task02;
 
 public class Command {
     public int op;

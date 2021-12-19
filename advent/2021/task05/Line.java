@@ -1,4 +1,4 @@
-package task5;
+package task05;
 
 public class Line {
     public int x1,x2,y1,y2;

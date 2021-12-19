@@ -1,4 +1,4 @@
-package task4;
+package task04;
 
 public class Triple {
     public int fi,se,th;

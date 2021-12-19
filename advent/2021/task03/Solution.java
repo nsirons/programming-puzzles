@@ -1,4 +1,4 @@
-package task3;
+package task03;
 
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -11,7 +11,7 @@ public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         List<String> data = new ArrayList<>();
 
-        File myObj = new File("aoc2021/src/task3/test.in");
+        File myObj = new File("aoc2021/src/task03/test.in");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             data.add(myReader.nextLine());
@@ -39,7 +39,6 @@ public class Solution {
     }
 
     public static int part2(List<String> inp) {
-        String gammaStr, epsStr;
         List<String> gammaGood = inp, epsGood = inp;
         int gammaColIdx = 0, epsColIdx=0;
         while (gammaGood.size() > 1) {

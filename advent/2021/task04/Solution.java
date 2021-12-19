@@ -1,4 +1,4 @@
-package task4;
+package task04;
 
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -16,12 +16,12 @@ public class Solution {
         List<Board> boardList = new ArrayList<>();
 
 
-        File myObj = new File("aoc2021/src/task4/test.in");
+        File myObj = new File("aoc2021/src/task04/test.in");
         Scanner myReader = new Scanner(myObj);
         for (String val : myReader.nextLine().split(",")) bingo.add(Integer.valueOf(val));
         int boardCnt = 0;
         while (myReader.hasNextLine()) {
-            String line = myReader.nextLine();
+            myReader.nextLine();
             Board board = new Board(BOARDSIZE);
             for (int i = 0; i < BOARDSIZE; i++) {
                 int j = 0;
@@ -30,9 +30,8 @@ public class Solution {
                     try {
                         val = Integer.valueOf(valStr);
                     }
-                    catch (NumberFormatException e){
+                    catch (NumberFormatException e) {
                         continue;
-
                     }
 
                     val2Board.computeIfAbsent(val, k -> new ArrayList<>());

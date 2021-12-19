@@ -1,4 +1,4 @@
-package task8;
+package task08;
 
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -11,7 +11,7 @@ public class Solution {
         List<List<String>> dataInp = new ArrayList<>();
         List<List<String>> dataOut = new ArrayList<>();
 
-        File myObj = new File("aoc2021/src/task8/test.in");
+        File myObj = new File("aoc2021/src/task08/test.in");
         Scanner myReader = new Scanner(myObj);
         while (myReader.hasNextLine()) {
             String[] inpOut = myReader.nextLine().split(" \\| ");
