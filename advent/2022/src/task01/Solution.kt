@@ -1,3 +1,4 @@
+package task01;
 import java.io.File
 
 fun readInput(name: String) = File("src/task01", "$name")
