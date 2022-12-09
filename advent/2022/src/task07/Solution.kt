@@ -25,7 +25,6 @@ fun dfsRead(i: Int, prevDir: Node) {
         i++
     }
     if (i >= input.size) return
-//    if (prevDir == null) return
     // pick "$ cd <dirName>"
     var curDir = Node(input[i].substring(5), prevDir)
     prevDir.nextNodes.add(curDir)
