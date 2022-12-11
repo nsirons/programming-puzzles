@@ -1,6 +1,7 @@
 package task10;
 
 import java.io.File
+import kotlin.math.abs
 
 
 fun readInput(name: String) = File("src/task10", "$name")
@@ -25,7 +26,7 @@ fun part2(input: List<Int>) {
     var x = 1;
     for ((idx, v) in input.withIndex()) {
         val i = idx % 40
-        if (x - 1 == i || x == i || x + 1 == i) print("#")
+        if (abs(x-i) < 2) print("#")
         else print(' ')
         if (i == 39) println()
         x += v
